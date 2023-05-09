@@ -1,0 +1,317 @@
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'Proxima Nova Rg';
+    src: url('/public/fonts/proxima/ProximaNova-Regular.eot'),
+        url('/public/fonts/proxima/ProximaNova-Regular.woff2') format('woff2'),
+
+}
+
+
+ body{
+    font-family: 'Proxima Nova Rg';
+    background: #FFDF8C;
+    padding: 42px 50px 64px;
+ }
+
+ .wrapper{
+    max-width: 1359px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 62px;
+ }
+
+ .App{
+    background: #FFFFFF;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.03);
+    border-radius: 10px;
+ }
+
+ ul{
+    list-style: none;
+ }
+
+
+ // header component
+ .header{
+    position: relative;
+    margin-bottom: 40px;
+    &::before{
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 18px);
+        height: 1px;
+        background: #F7F7F7;
+    }
+    &__content{
+        padding: 53px 0 35px ;
+    }
+    &__row{
+        display: flex;
+        justify-content: space-between;
+        
+    }
+ }
+
+ // logo site component
+ .logo{
+    &__row{
+        display: flex;
+        gap: 0 17px;
+    }
+    &__img{
+        flex-shrink: 0;
+        width: 38px;
+        height: 29.29px;
+        display: flex;
+        img{
+            max-width: 100%;
+            height: auto;
+        }
+
+    }
+    &__title{
+
+        font-style: normal;
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 29px;
+        letter-spacing: 0.01em;
+        text-transform: uppercase;
+        color: #181818;
+        // border: 1px solid red; 
+    }
+    &__subtitle{
+        font-family: 'Proxima Nova Rg';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: #7B7B7B;
+        // border: 1px solid;
+        margin-top: -6px;
+    }
+ }
+
+//  button cart in header component
+ .button-cart{
+    background: #FE5F1E;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    padding: 15px 23px;
+    cursor: pointer;
+    transition: all 300ms ;
+    &:hover{
+        background: #d64107;
+    }
+    &__row{
+        display: flex;
+        gap:0  27px;
+    }
+    &__price,&__quantity{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        color: #FFFFFF;
+        
+    }
+    
+    &__info{
+        display: flex;
+        gap: 0 8px;
+        position: relative;
+        &::before{
+            content: '';
+            display: block;
+            position: absolute;
+            left: -13px;
+            top: -5px;
+            width: 1px;
+            height: 25px;
+            background: rgba(255, 255, 255, 0.25);
+           
+        }
+    }
+    &__icon{
+        width: 16px;
+        height: 16px;
+        display: flex;
+        justify-content: center;
+        svg{
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+ }
+
+//  home page comment
+ .home{
+    min-height: 500px;
+    &__setting{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0 20px;
+        margin-bottom: 33px;
+    }
+    &-main{
+        &__title{
+            margin-bottom: 44px;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 39px;
+            letter-spacing: 0.01em;
+            color: #000000;            
+        }
+    }
+ }
+
+ // filter component
+ .filter{
+    &__scroll{
+        max-width: 827.9px;
+        overflow: auto;
+      
+        &::-webkit-scrollbar{
+            height: 0!important;
+            background: transparent!important;
+        }
+    }
+    &__row{
+        display: flex;
+        gap: 9px;
+    }
+ }
+
+  // item filter component
+ .item-filter{
+    font-family: 'Proxima Nova';
+    padding: 14px 36px 17px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.015em;
+    color: #2C2C2C;
+    background: #F9F9F9;
+    border-radius: 30px;
+    transition: all 300ms;
+    &.active{
+        background:  #282828;
+        color: #FFFFFF;
+    }
+ }
+
+  // trie component
+ .trie{
+    position: relative;
+    &__title{
+        display: flex;
+        align-items: center;
+        gap: 0 7px ;
+        &-icon{
+            flex-shrink: 0;
+            display: flex;
+          
+        }
+        &-text{
+            font-style: normal;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 17px;
+            letter-spacing: 0.015em;
+            color: #2C2C2C;            
+        }
+    }
+    &__row{
+        display: flex;
+        gap: 0 8px;
+    }
+    &__result{
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0.015em;
+        color: #FE5F1E;
+        border-bottom: 1px dashed #FE5F1E;       
+    }
+    &__body{
+        background: #FFFFFF;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+        border-radius: 10px;
+        padding: 13px 0 9px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        &-item{
+            padding: 10px 22px 11px 14px;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 17px;
+            letter-spacing: 0.015em;
+            color: #000000;
+            &.active{
+                background: rgba(254, 95, 30, 0.05);
+                color: #FE5F1E;
+                font-weight: 700;
+            }        
+        }
+    }
+ }
+
+ // list product component 
+ .list-product{
+    &__row{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap:55px 35px;
+    }
+ }
+ 
+
+ // product compoent
+
+ .product{
+    border: 1px solid red;
+    &__head{
+        margin-bottom: 22px;
+    }
+    &__img{
+        width: 259.12px;
+        height: 260px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        margin: 0 auto 11px;
+        img{
+            max-width: 100%;
+            height: auto;
+        }
+    }
+    &__name{
+        font-style: normal;
+        font-weight: 800;
+        font-size: 20px;
+        line-height: 24px;
+        text-align: center;
+        letter-spacing: 0.01em;
+        color: #000000;
+        text-align: center;
+    }
+    
+ }
