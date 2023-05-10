@@ -1,0 +1,144 @@
+.product__head {
+  margin-bottom: 22px;
+}
+.product__img {
+  width: 259.12px;
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0 auto 11px;
+}
+.product__img img {
+  max-width: 100%;
+  height: auto;
+}
+.product__name {
+  font-family: "Proxima Nova Th";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #000000;
+  text-align: center;
+}
+.product__params {
+  background: #F3F3F3;
+  border-radius: 10px;
+  padding: 7px 5px 7px 6px;
+  margin-bottom: 17px;
+}
+.product__type, .product__size {
+  display: flex;
+  gap: 0 6px;
+  margin-bottom: 7px;
+}
+.product__type-item, .product__size-item {
+  font-family: "Proxima Nova Ltt";
+  flex-grow: 1;
+  text-align: center;
+  padding: 7px 5px 14px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  letter-spacing: 0.015em;
+  color: #2C2C2C;
+  cursor: pointer;
+  transition: all 300ms;
+}
+.product__type-item.active, .product__size-item.active {
+  background: #000;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+  border-radius: 5px;
+}
+.product__size {
+  margin-bottom: unset;
+}
+.product__footer {
+  display: flex;
+  align-items: center;
+  gap: 0 20px;
+  justify-content: space-between;
+}
+.product__price {
+  font-family: "Proxima Nova Ltt";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: 0.015em;
+  color: #000000;
+  flex-shrink: 0;
+}
+
+.button-product {
+  cursor: pointer;
+  padding: 14px 18px;
+  background: #FE5F1E;
+  border: 1px solid #FE5F1E;
+  border-radius: 30px;
+  transition: all 300ms;
+}
+.button-product:hover {
+  box-shadow: 0 0 5px #EB5A1E;
+}
+.button-product.active {
+  background: #FFFFFF;
+  border: 1px solid #EB5A1E;
+  border-radius: 30px;
+}
+.button-product.active .button-product__text {
+  color: #EB5A1E;
+}
+.button-product.active .button-product__icon svg path {
+  fill: #EB5A1E;
+}
+.button-product.active .button-product__quantity {
+  display: block;
+  padding: 3px 7px;
+  background: #EB5A1E;
+  border-radius: 50%;
+  min-height: 22px;
+  min-width: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button-product, .button-product * {
+  transition: all 300ms;
+}
+.button-product__row {
+  display: flex;
+  align-items: center;
+  gap: 0 7px;
+}
+.button-product__icon {
+  width: 12px;
+  height: 12px;
+  display: flex;
+}
+.button-product__icon svg {
+  max-width: 100%;
+  height: auto;
+}
+.button-product__text {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #FFFFFF;
+}
+.button-product__quantity {
+  display: none;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 16px;
+  color: #FFFFFF;
+}/*# sourceMappingURL=product.css.map */

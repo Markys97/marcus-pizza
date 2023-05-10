@@ -1,0 +1,12 @@
+.filter__scroll {
+  max-width: 827.9px;
+  overflow: auto;
+}
+.filter__scroll::-webkit-scrollbar {
+  height: 0 !important;
+  background: transparent !important;
+}
+.filter__row {
+  display: flex;
+  gap: 9px;
+}/*# sourceMappingURL=filter.css.map */

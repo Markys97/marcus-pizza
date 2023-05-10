@@ -1,6 +1,7 @@
 .cart{
-    min-height: 500px;
+    min-height: 700px;
     &-empty{
+        margin-top: 163px;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -195,25 +196,3 @@
 
 
 
-.button-control{
-    background: unset;
-    border: unset;
-    outline: unset;
-    display: inline-block;
-    cursor: pointer;
-    &__icon{
-        width: 32px;
-        height: 32px;
-        border: 2px solid #FE5F1E;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        svg{
-            path{
-                fill:#FE5F1E;
-            }
-        }
-
-    }
-}

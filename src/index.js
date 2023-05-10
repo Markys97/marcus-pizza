@@ -7,8 +7,8 @@ import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route} f
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<App/>} >
-    <Route path='/home'  element ={<Home/>} />
-    <Route path='/cart' element={<Cart/>}/>
+    <Route index  element ={<Home/>} />
+    <Route path='cart' element={<Cart/>}/>
   
   </Route>
 ))

@@ -1,0 +1,25 @@
+.button-control {
+  background: unset;
+  border: unset;
+  outline: unset;
+  display: inline-block;
+  cursor: pointer;
+}
+.button-control--light .button-control__icon {
+  border: 2px solid #BDBABA;
+}
+.button-control--light .button-control__icon svg path {
+  fill: #BDBABA;
+}
+.button-control__icon {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #FE5F1E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.button-control__icon svg path {
+  fill: #FE5F1E;
+}/*# sourceMappingURL=controlButton.css.map */

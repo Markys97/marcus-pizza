@@ -1,0 +1,9 @@
+
+ // list product component 
+ .list-product{
+    &__row{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap:55px 35px;
+    }
+ }

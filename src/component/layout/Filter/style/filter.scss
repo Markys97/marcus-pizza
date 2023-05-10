@@ -1,0 +1,16 @@
+ // filter component
+ .filter{
+    &__scroll{
+        max-width: 827.9px;
+        overflow: auto;
+      
+        &::-webkit-scrollbar{
+            height: 0!important;
+            background: transparent!important;
+        }
+    }
+    &__row{
+        display: flex;
+        gap: 9px;
+    }
+ }

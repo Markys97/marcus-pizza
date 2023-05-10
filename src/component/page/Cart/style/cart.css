@@ -1,7 +1,8 @@
 .cart {
-  min-height: 500px;
+  min-height: 700px;
 }
 .cart-empty {
+  margin-top: 163px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -165,24 +166,4 @@
   font-family: "Proxima Nova Th";
   color: #FE5F1E;
   font-weight: 700 !important;
-}
-
-.button-control {
-  background: unset;
-  border: unset;
-  outline: unset;
-  display: inline-block;
-  cursor: pointer;
-}
-.button-control__icon {
-  width: 32px;
-  height: 32px;
-  border: 2px solid #FE5F1E;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-.button-control__icon svg path {
-  fill: #FE5F1E;
 }/*# sourceMappingURL=cart.css.map */

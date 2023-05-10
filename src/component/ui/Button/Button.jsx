@@ -2,7 +2,7 @@ import './style/button.css'
 
 function Button({textButton,children,type}) {
   return (
-    <button className={`button-simple`}>
+    <button className={`button-simple ${type !==undefined? `button-simple--${type}`:''}`}>
         <div className="button-simple__content">
             {
                   (children!== undefined) && (
