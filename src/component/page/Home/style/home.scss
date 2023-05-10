@@ -1,0 +1,24 @@
+//  home page comment
+.home{
+    min-height: 500px;
+    padding-bottom: 96px;
+    &__setting{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0 20px;
+        margin-bottom: 33px;
+    }
+    &-main{
+        &__title{
+            font-family: 'Proxima Nova Ltt';
+            margin-bottom: 44px;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 39px;
+            letter-spacing: 0.01em;
+            color: #000000;            
+        }
+    }
+ }

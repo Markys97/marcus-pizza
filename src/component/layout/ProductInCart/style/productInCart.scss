@@ -1,0 +1,78 @@
+.product-in-cart{
+    &+&{
+        margin-top: 17px;
+    }
+    &__row{
+        display: flex;
+        gap: 0 68px;
+    }
+    &__info{
+        display: flex;
+        align-items: center;
+        gap: 0 15px;
+        flex-grow: 1;
+    }
+    &__detail{
+        max-width: 280px;
+        width: 100%;
+    }
+    &__img{
+        width: 80px;
+        height: 80px;
+        display: flex;
+        flex-shrink: 0;
+        img{
+            max-width: 100%;
+            height: auto;
+        }
+    }
+    &__name{
+        font-family: 'Proxima Nova Cn Th';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 27px;
+        letter-spacing: 0.01em;
+        color: #000000;
+        margin-bottom: 3px;     
+    }
+    &__params{
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: 0.01em;
+        color: #8D8D8D;
+    }
+
+    &__control{
+        display: flex;
+        align-items: center;
+    }
+    &__quantity{
+        display: flex;
+        align-items: center;
+        gap: 0 12px;
+        margin-right: 93px;
+    }
+    &__number{
+        font-family: 'Proxima Nova Cn Th';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 27px;
+        letter-spacing: 0.01em;
+        color: #000000;
+    }
+    &__price{
+        margin-right: 90px;
+        font-family: 'Proxima Nova Cn Th';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 27px;
+        letter-spacing: 0.01em;
+        color: #000000;
+        
+    }
+}

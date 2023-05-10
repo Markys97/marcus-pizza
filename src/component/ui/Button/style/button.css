@@ -1,0 +1,53 @@
+.button-simple {
+  padding: 14px 40px 17px;
+  border: none;
+  outline: none;
+  background: #FE5F1E;
+  border-radius: 30px;
+  transition: all 300ms;
+  cursor: pointer;
+}
+.button-simple__content {
+  display: flex;
+  align-items: center;
+  gap: 0 14px;
+}
+.button-simple:hover {
+  background: #e1490d;
+}
+.button-simple__icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.button-simple__icon svg {
+  width: 100%;
+  height: 100%;
+}
+.button-simple__text {
+  font-family: "Proxima Nova Lt";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.015em;
+  color: #FFFFFF;
+}
+.button-simple--sombre {
+  background: #282828;
+}
+.button-simple--sombre:hover {
+  background: #1e1d1d;
+}
+.button-simple--light {
+  background: #FFFFFF;
+  border: 1px solid #D3D3D3;
+  border-radius: 30px;
+}
+.button-simple--light .button-simple__text {
+  color: #CACACA;
+}/*# sourceMappingURL=button.css.map */

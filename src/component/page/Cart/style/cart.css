@@ -1,0 +1,188 @@
+.cart {
+  min-height: 500px;
+}
+.cart-empty {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart-empty__content {
+  height: -moz-fit-content;
+  height: fit-content;
+  max-width: 547px;
+  padding-bottom: 40px;
+}
+.cart-empty__title {
+  font-family: "Proxima Nova Th";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 39px;
+  letter-spacing: 0.01em;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.cart-empty__text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 145.4%;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #777777;
+  margin-bottom: 47px;
+}
+.cart-empty__img {
+  width: 300px;
+  height: 255px;
+  display: flex;
+  margin: 0 auto 74px;
+}
+.cart-empty__img img {
+  max-width: 100%;
+  height: auto;
+}
+.cart-empty__wrapper-button {
+  display: flex;
+  justify-content: center;
+}
+.cart-with {
+  max-width: 821px;
+  margin: 0 auto;
+  padding-bottom: 102px;
+}
+.cart-with__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0 20px;
+  margin-bottom: 119px;
+}
+.cart-with__title {
+  display: flex;
+  align-items: center;
+  gap: 0 17px;
+}
+.cart-with__title-icon {
+  width: 29px;
+  height: 29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.cart-with__title-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.cart-with__title-icon svg path {
+  stroke: #3F3F3F;
+}
+.cart-with__title-text {
+  font-family: "Proxima Nova Cn Th";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 39px;
+  letter-spacing: 0.01em;
+  color: #000000;
+}
+.cart-with__clean {
+  cursor: pointer;
+  background: unset;
+  outline: none;
+  border: none;
+}
+.cart-with__clean:hover .cart-with__clean-text {
+  color: #7e7b7b;
+}
+.cart-with__clean:hover .cart-with__clean-icon svg path {
+  stroke: #7e7b7b;
+}
+.cart-with__clean * {
+  transition: all 300ms;
+}
+.cart-with__clean-row {
+  display: flex;
+  align-items: center;
+  gap: 0 8px;
+}
+.cart-with__clean-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  flex-shrink: 0;
+}
+.cart-with__clean-icon svg {
+  width: 100%;
+  height: auto;
+}
+.cart-with__clean-text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #B6B6B6;
+}
+.cart-with__body {
+  margin-bottom: 46px;
+}
+.cart-with__footer-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.cart-with__footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 20px;
+}
+.cart-with__total-product {
+  font-family: "Proxima Nova Th";
+  font-style: normal;
+  font-weight: 500 !important;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: 0.01em;
+  color: #000000;
+}
+.cart-with__total-product span:nth-child(2) {
+  font-family: "Proxima Nova Th";
+  font-weight: 700 !important;
+}
+.cart-with__total-price {
+  font-family: "Proxima Nova Lt";
+  font-style: normal;
+  font-weight: 600 !important;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: 0.01em;
+  color: #000000;
+}
+.cart-with__total-price span {
+  font-family: "Proxima Nova Th";
+  color: #FE5F1E;
+  font-weight: 700 !important;
+}
+
+.button-control {
+  background: unset;
+  border: unset;
+  outline: unset;
+  display: inline-block;
+  cursor: pointer;
+}
+.button-control__icon {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #FE5F1E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.button-control__icon svg path {
+  fill: #FE5F1E;
+}/*# sourceMappingURL=cart.css.map */

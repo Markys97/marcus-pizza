@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './component/layout/App/App';
-import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } from 'react-router-dom';
+import Home from './component/page/Home/Home';
+import Cart from './component/page/Cart/Cart';
+import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route} from 'react-router-dom';
 
 const router = createBrowserRouter(createRoutesFromElements(
-  <Route path='/' element={<App/>} index>
-
+  <Route path='/' element={<App/>} >
+    <Route path='/home'  element ={<Home/>} />
+    <Route path='/cart' element={<Cart/>}/>
+  
   </Route>
 ))
 
