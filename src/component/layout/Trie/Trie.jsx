@@ -1,14 +1,31 @@
 import './style/trie.css'
-import { useEffect } from 'react';
+import { useEffect,useState } from 'react';
+import { useSelector,useDispatch } from 'react-redux';
+import { changeItemTriActive } from '../../../redux/slices/view';
+import { getCurrentActiveItemTri } from './functions';
 
 function Trie() {
-
-    // set bottom position trie body
-    useEffect(()=>{
-        const trieBody = document.querySelector('.trie__body')
-        const trieBodyHeight = parseFloat(getComputedStyle(trieBody).height);
+    // all component state
+    const [isOpenBodyTri, setOpenBodyTri] = useState(false)
+    const handlerBodyTri = ()=> setOpenBodyTri(prev=> !prev)
     
-        if(trieBody !== undefined){
+
+    // redux logic
+    const dispatch = useDispatch()
+    const itemTriList = useSelector(state => state.view.trieList);
+
+    // view logic
+    const handlerItemTri = id => {
+        dispatch(changeItemTriActive(id))
+        handlerBodyTri()
+    }
+    const activeItemTri = getCurrentActiveItemTri(itemTriList)
+
+    // set bottom position trie body 
+    useEffect(()=>{    
+        const trieBody = document.querySelector('.trie__body')
+        if(trieBody){
+            const trieBodyHeight = parseFloat(getComputedStyle(trieBody).height);
             trieBody.style.bottom = `-${trieBodyHeight + 8}px`
         }
         
@@ -17,7 +34,7 @@ function Trie() {
   return (
     <div className="trie">
         <div className="trie__content">
-            <div className="trie__head">
+            <div onClick={()=>  handlerBodyTri()} className="trie__head">
                 <div className="trie__row">
                     <div className="trie__title">
                         <div className="trie__title-icon">
@@ -28,15 +45,22 @@ function Trie() {
                         </div>
                     </div>
                     <div className="trie__result">
-                        популярности
+                        {activeItemTri.text}
                     </div>
                 </div>
             </div>
-            <ul className="trie__body">
-                <li className="trie__body-item active">популярности</li>
-                <li className="trie__body-item">по цене</li>
-                <li className="trie__body-item">по алфавиту</li>
-            </ul>
+           
+            {
+                isOpenBodyTri && (
+                    <ul className="trie__body">
+                        {
+                            itemTriList.map((itemTri,index)=>(
+                                <li onClick={()=> handlerItemTri(itemTri.id)} key={index} className={`trie__body-item ${itemTri.isActive?' active':''}`}>{itemTri.text}</li>
+                            ))
+                        }
+                    </ul>
+                )
+            }
         </div>
     </div>
   )

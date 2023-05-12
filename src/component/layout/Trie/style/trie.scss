@@ -2,6 +2,9 @@
   .trie{
     flex-shrink: 0;
     position: relative;
+    &__head{
+        cursor: pointer;
+    }
     &__title{
         display: flex;
         align-items: center;
@@ -20,6 +23,7 @@
             color: #2C2C2C;            
         }
     }
+    
     &__row{
         display: flex;
         gap: 0 8px;

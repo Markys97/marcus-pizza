@@ -4,6 +4,16 @@
   box-sizing: border-box;
 }
 
+@keyframes loading {
+  from {
+    left: 0;
+    background: #dbdada;
+  }
+  to {
+    left: 100%;
+    background: rgb(198, 196, 196);
+  }
+}
 body {
   font-family: "Proxima Nova Cn Rg";
   background: #FFDF8C;

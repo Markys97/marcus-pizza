@@ -2,6 +2,9 @@
   flex-shrink: 0;
   position: relative;
 }
+.trie__head {
+  cursor: pointer;
+}
 .trie__title {
   display: flex;
   align-items: center;

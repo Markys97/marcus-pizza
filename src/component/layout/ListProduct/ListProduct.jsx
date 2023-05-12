@@ -1,5 +1,5 @@
 import'./style/listProduct.css'
-import Product from '../App/Product/Product'
+import Product from '../Product/Product'
 
 function ListProduct() {
   return (

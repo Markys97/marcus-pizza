@@ -11,7 +11,8 @@ function Cart() {
     <main className='cart'>
         <div className="cart__container wrapper">
             <div className="cart__content">
-                { test ? (<div className="cart-empty">
+                { test ?
+                 (<div className="cart-empty">
                     <div className="cart-empty__content">
                         <h2 className="cart-empty__title">Корзина пустая 😕</h2>
 
@@ -28,7 +29,8 @@ function Cart() {
                             <Button textButton="Вернуться назад" type="sombre"/>
                         </div>
                     </div>
-                </div>):(
+                </div>):
+                (
                     <div className="cart-with">
                         <div className="cart-with__content">
                             <div className="cart-with__head">

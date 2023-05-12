@@ -3,6 +3,17 @@
     padding: 0;
     box-sizing: border-box;
 }
+@keyframes loading { 
+    from{
+      left: 0;
+      background: #dbdada;
+  
+    }
+    to{
+      left: 100%;
+      background: rgb(198, 196, 196);
+    }
+}
 
 
 

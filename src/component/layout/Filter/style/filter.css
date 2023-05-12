@@ -1,10 +1,17 @@
 .filter__scroll {
   max-width: 827.9px;
   overflow: auto;
+  padding-bottom: 5px;
 }
 .filter__scroll::-webkit-scrollbar {
-  height: 0 !important;
-  background: transparent !important;
+  height: 13px;
+}
+.filter__scroll::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.filter__scroll::-webkit-scrollbar-thumb {
+  background: #d0d0d0;
+  border-radius: 8px;
 }
 .filter__row {
   display: flex;
