@@ -1,29 +1,49 @@
 import'./style/product.css'
 
-function Product() {
+function Product({itemProduct}) {
+
+    const {img,name,type,size,price} = itemProduct
+    // console.log(itemProduct,' mama')
   return (
     <div className="product">
         <div className="product__content">
             <div className="product__head">
                 <div className="product__img">
-                    <img src="/images/products/01.png" alt="pizza" />
+                    <img src={`/images/products/${img}`} alt={name} />
                 </div>
-                <div className="product__name">Чизбургер-пицца</div>
+                <div className="product__name">{name}</div>
             </div>
             <div className="product__params">
-                <ul className="product__type">
-                    <li className="product__type-item active">тонкое</li>
-                    <li className="product__type-item">традиционное</li>
-                </ul>
-                <ul className="product__size">
-                    <li className="product__size-item active">26 см.</li>
-                    <li className="product__size-item">30 см.</li>
-                    <li className="product__size-item">40 см.</li>
-                </ul>
+                {
+                    type && (
+                    <ul className="product__type">
+                       {
+                        type.map( itemType => (
+                            <li className={`product__type-item ${itemType.isActive?'active':''}`}>{itemType.value}</li>
+                        ))
+                       }
+                        
+                    </ul>
+                    )
+                }
+                {
+                    type && (
+                    <ul className="product__size">
+                       {
+                        size.map( itemSize => (
+                            <li className={`product__size-item ${itemSize.isActive?'active':''}`}>{itemSize.value}</li>
+                        ))
+                       }
+                        
+                    </ul>
+                    )
+                }
+               
+               
             </div>
             <div className="product__footer">
                 <div className="product__price">
-                    от 395 &#x20BD;
+                    от {price} &#x20BD;
                 </div>
                 <div className="product__buttons ">
                     <button className='button-product '>
