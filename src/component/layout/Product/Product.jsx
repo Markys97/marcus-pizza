@@ -1,15 +1,63 @@
 import'./style/product.css'
+import { useDispatch,useSelector} from 'react-redux';
+import { setTypeProductActive,setSizeProductActive,addProductInCart} from '../../../redux/slices/product';
 
 function Product({itemProduct}) {
+    const cart = useSelector(state => state.product.cart)
+    const dispatch = useDispatch()
+    const {id,img,name,type,size,price} = itemProduct
 
-    const {img,name,type,size,price} = itemProduct
-    // console.log(itemProduct,' mama')
+    const setActiveType = (e,id) => {
+      let textClickedItem = e.target.textContent.toLowerCase();
+      let itemClicked = type.find(item=> item.value.toLowerCase() === textClickedItem)
+      dispatch(setTypeProductActive({id,text:textClickedItem}))
+    }
+    const setActiveSize = (e,id) => {
+      let textClickedItem = e.target.textContent.toLowerCase();
+      let itemClicked = type.find(item=> item.value.toLowerCase() === textClickedItem)
+      dispatch(setSizeProductActive({id,text:textClickedItem}))
+    }
+ 
+    const getActiveSize = size => size.find(item => item.isActive)
+    const getActiveType = type => type.find(item => item.isActive) 
+    const activeSizeValue = getActiveSize(size).value.toLowerCase().replace('.','')
+    const activeTypeValue =  getActiveSize(type).value.toLowerCase()
+
+    const handlerWidthProduct =size=>{
+        switch(size){
+            case '26 см':
+                return 'small'
+                break
+            case '30 см':
+                return 'normal'
+                break
+            case '40 см':
+                return 'big'
+                break
+            default:
+                return ''
+        }
+    }
+
+    const addNewProductInCart = (id,type,size)=>{
+        let productInCart = {id,typeProduct:activeTypeValue,sizeProduct:activeSizeValue}
+
+        // console.log(productInCart)
+
+        dispatch(addProductInCart(productInCart))
+
+       
+
+    }
+
+
+
   return (
-    <div className="product">
+    <div className="product active">
         <div className="product__content">
             <div className="product__head">
                 <div className="product__img">
-                    <img src={`/images/products/${img}`} alt={name} />
+                    <img className={handlerWidthProduct(activeSizeValue)} src={`/images/products/${img}`} alt={name} />
                 </div>
                 <div className="product__name">{name}</div>
             </div>
@@ -19,7 +67,7 @@ function Product({itemProduct}) {
                     <ul className="product__type">
                        {
                         type.map( itemType => (
-                            <li className={`product__type-item ${itemType.isActive?'active':''}`}>{itemType.value}</li>
+                            <li onClick={(e)=>(setActiveType(e,id))} className={`product__type-item ${itemType.isActive?'active':''}`}>{itemType.value}</li>
                         ))
                        }
                         
@@ -31,7 +79,7 @@ function Product({itemProduct}) {
                     <ul className="product__size">
                        {
                         size.map( itemSize => (
-                            <li className={`product__size-item ${itemSize.isActive?'active':''}`}>{itemSize.value}</li>
+                            <li  onClick={(e)=>(setActiveSize(e,id))} className={`product__size-item ${itemSize.isActive?'active':''}`}>{itemSize.value}</li>
                         ))
                        }
                         
@@ -46,7 +94,7 @@ function Product({itemProduct}) {
                     от {price} &#x20BD;
                 </div>
                 <div className="product__buttons ">
-                    <button className='button-product '>
+                    <button onClick={()=> addNewProductInCart(id,type,size)} className='button-product '>
                         <div className="button-product__content">
                             <div className="button-product__row">
                                 <div className="button-product__icon">

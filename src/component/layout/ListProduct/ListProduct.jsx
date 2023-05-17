@@ -17,7 +17,7 @@ function ListProduct() {
     
     let listProductByFilter;
     let activeTriItemText = activeTriItem.text.toLowerCase()
-    console.log(activeTriItemText,' mama')
+
     if(activeItemFilter.id === 0){
       listProductByFilter = listProduct
     }else{

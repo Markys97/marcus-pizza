@@ -40,6 +40,16 @@
 .product__img img {
   max-width: 100%;
   height: auto;
+  transition: all 300ms;
+}
+.product__img img.small {
+  transform: scale(0.6);
+}
+.product__img img.normal {
+  transform: scale(0.8);
+}
+.product__img img.big {
+  transform: scale(1);
 }
 .product__name {
   font-family: "Proxima Nova Th";

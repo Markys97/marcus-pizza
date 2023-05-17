@@ -23,11 +23,11 @@ const initialState = {
                     isActive:false
                 },
             ],
-            price:395
+            price:295
         },
         {
             id:2,
-            name:'pizza b',
+            name:'pizza r',
             categori:'Острые',
             img:'02.png',
             size:[
@@ -45,11 +45,11 @@ const initialState = {
                     isActive:false
                 },
             ],
-            price:150
+            price:1500
         },
         {
             id:3,
-            name:'pizza b',
+            name:'pizza bx',
             categori:'Вегетарианская',
             img:'03.png',
             size:[
@@ -67,7 +67,7 @@ const initialState = {
                     isActive:false
                 },
             ],
-            price:450
+            price:400
         },
         {
             id:4,
@@ -89,11 +89,11 @@ const initialState = {
                     isActive:false
                 },
             ],
-            price:395
+            price:3950
         },
         {
             id:5,
-            name:'pizza b',
+            name:'pizza z',
             categori:'Острые',
             img:'02.png',
             size:[
@@ -111,11 +111,11 @@ const initialState = {
                     isActive:false
                 },
             ],
-            price:150
+            price:550
         },
         {
             id:6,
-            name:'pizza b',
+            name:'pizza p',
             categori:'Вегетарианская',
             img:'03.png',
             size:[
@@ -133,7 +133,7 @@ const initialState = {
                     isActive:false
                 },
             ],
-            price:450
+            price:750
         }
     ]
 }
@@ -142,7 +142,72 @@ const initialState = {
     name:'product',
     initialState,
     reducers:{
+        setTypeProductActive: (state,action)=>{
+            let {text,id} = action.payload;
+            let listProduct = state.listProduct;
+            listProduct = listProduct.map(item=>{
+                if(id === item.id){
+                    item.type.forEach(elt=>{
+                        if(elt.value.toLowerCase()=== text){
+                            elt.isActive=true
+                        }else{
+                            elt.isActive=false
+                        }
+                    })
+                }
 
+                return item
+            })
+            state.listProduct = listProduct
+            return state
+        },
+        setSizeProductActive: (state,action)=>{
+            let {text,id} = action.payload;
+            let listProduct = state.listProduct;
+            listProduct = listProduct.map(item=>{
+                if(id === item.id){
+                    item.size.forEach(elt=>{
+                        if(elt.value.toLowerCase()=== text){
+                            elt.isActive=true
+                        }else{
+                            elt.isActive=false
+                        }
+                    })
+                }
+
+                return item
+            })
+            state.listProduct = listProduct
+            return state
+        },
+        addProductInCart: (state,action)=>{
+            const {id,sizeProduct,typeProduct}= action.payload
+            const cart = state.cart;
+
+            if(cart.length===0){
+                cart.push({id:id,type:typeProduct,size:sizeProduct,qt:1})
+                state.cart =cart
+                return state
+            }
+
+            cart.forEach((item,index,arr)=>{
+                if( item.id !== id ){
+                    cart.push({id:id,type:typeProduct,size:sizeProduct,qt:1})
+                }
+            })
+
+           
+
+           
+
+            state.cart = cart
+
+            return state
+
+
+        }
     }
 })
+
+export const {setTypeProductActive,setSizeProductActive,addProductInCart} = productSlice.actions
 
