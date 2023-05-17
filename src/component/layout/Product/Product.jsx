@@ -40,15 +40,25 @@ function Product({itemProduct}) {
     }
 
     const addNewProductInCart = (id,type,size)=>{
-        let productInCart = {id,typeProduct:activeTypeValue,sizeProduct:activeSizeValue}
+        let productInCart = {id,typeProduct:activeTypeValue,sizeProduct:activeSizeValue,price}
 
-        // console.log(productInCart)
+
 
         dispatch(addProductInCart(productInCart))
 
        
 
     }
+
+    const getPerTotalProduct = (cart,id)=>{
+        let listPerProduct = cart.filter(item => item.id === id)
+
+        return listPerProduct.length
+    }
+
+   const perTotalProduct= getPerTotalProduct(cart,id)
+
+
 
 
 
@@ -94,7 +104,7 @@ function Product({itemProduct}) {
                     от {price} &#x20BD;
                 </div>
                 <div className="product__buttons ">
-                    <button onClick={()=> addNewProductInCart(id,type,size)} className='button-product '>
+                    <button onClick={()=> addNewProductInCart(id,type,size)} className={`button-product ${perTotalProduct!==0? ' active':''}`}>
                         <div className="button-product__content">
                             <div className="button-product__row">
                                 <div className="button-product__icon">
@@ -103,7 +113,7 @@ function Product({itemProduct}) {
                                     </svg>
                                 </div>
                                 <div className="button-product__text">Добавить</div>
-                                <div className="button-product__quantity">2</div>
+                                <div className="button-product__quantity">{perTotalProduct}</div>
                             </div>
                         </div>
                     </button>

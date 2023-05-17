@@ -181,25 +181,28 @@ const initialState = {
             return state
         },
         addProductInCart: (state,action)=>{
-            const {id,sizeProduct,typeProduct}= action.payload
+            const {id,sizeProduct,typeProduct,price}= action.payload
             const cart = state.cart;
 
             if(cart.length===0){
-                cart.push({id:id,type:typeProduct,size:sizeProduct,qt:1})
+                cart.push({id:id,type:typeProduct,size:sizeProduct,qt:1,price})
                 state.cart =cart
                 return state
             }
-
-            cart.forEach((item,index,arr)=>{
-                if( item.id !== id ){
-                    cart.push({id:id,type:typeProduct,size:sizeProduct,qt:1})
+           let isInCart= cart.findIndex(item => {
+                if(item.id === id && item.size === sizeProduct && item.type === typeProduct){
+                    return item
                 }
             })
 
-           
+            if(isInCart===-1){
+                cart.push({id:id,type:typeProduct,size:sizeProduct,qt:1,price})
+            }else{
+                cart[isInCart].qt += 1
+            }
 
            
-
+            
             state.cart = cart
 
             return state
