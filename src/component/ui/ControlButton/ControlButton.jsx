@@ -1,8 +1,8 @@
 import'./style/controlButton.css'
 
-function ControlButton({children,type}) {
+function ControlButton({children,type,handlerClick}) {
   return (
-<button className={`button-control ${type!==undefined ? `button-control--${type}`:''}`}>
+<button onClick={()=> handlerClick()} className={`button-control ${type!==undefined ? `button-control--${type}`:''}`}>
     <div className="button-control__icon">
       {children}
     </div>

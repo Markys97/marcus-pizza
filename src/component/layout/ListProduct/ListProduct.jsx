@@ -1,12 +1,14 @@
 import'./style/listProduct.css'
 import Product from '../Product/Product'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
 import { getCurrentFiltreActive } from '../Filter/function'
 import { getCurrentActiveItemTri } from '../Trie/functions'
-
+import {setCartNotifOpen}  from '../../../redux/slices/product';
+import {useState,useEffect} from 'react'
 
 
 function ListProduct() {
+  const dispatch = useDispatch()
   const listFilter = useSelector(state=> state.view.filterList);
   const listProduct = useSelector(state => state.product.listProduct);
   const listTri = useSelector(state=> state.view.trieList)
@@ -43,6 +45,17 @@ function ListProduct() {
   }
   const  finalListProduct = getFinalListProduct(activeItemFilter,activeTriItem,listProduct)
 
+  const cart = useSelector(state=> state.product.cart)
+  const isCartNotifOpen = useSelector(state => state.product.isCartNotifOpen)
+  
+
+  useEffect(()=>{
+    setTimeout(() => {
+      // setCartNotifOpen(false)
+      dispatch(setCartNotifOpen(false))
+    }, 1000);
+  },[cart.length])
+
   return (
     <div className="list-product">
         <div className="list-product__row">
@@ -51,6 +64,7 @@ function ListProduct() {
               finalListProduct.map((product,index)=>  <Product key={index}  itemProduct={product}/>)
             }
         </div>
+        <div className= {`notification ${isCartNotifOpen?'active':''}`}>пицца успешно добавлена</div>
     </div>
   )
 }

@@ -48,12 +48,17 @@
     &__control{
         display: flex;
         align-items: center;
+        flex-grow: 1;
+        justify-content: space-between;
+        gap: 20px;
     }
     &__quantity{
         display: flex;
         align-items: center;
         gap: 0 12px;
-        margin-right: 93px;
+        // margin-right: 93px;
+        flex-shrink: 0;
+        min-width: 200px;
     }
     &__number{
         font-family: 'Proxima Nova Cn Th';
@@ -63,9 +68,11 @@
         line-height: 27px;
         letter-spacing: 0.01em;
         color: #000000;
+        min-width: 50px;
+        text-align: center;
     }
     &__price{
-        margin-right: 90px;
+        min-width: 100px;
         font-family: 'Proxima Nova Cn Th';
         font-style: normal;
         font-weight: 700;
@@ -73,6 +80,7 @@
         line-height: 27px;
         letter-spacing: 0.01em;
         color: #000000;
+        text-align: center;
         
     }
 }

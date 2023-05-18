@@ -1,6 +1,11 @@
 import'./style/product.css'
 import { useDispatch,useSelector} from 'react-redux';
-import { setTypeProductActive,setSizeProductActive,addProductInCart} from '../../../redux/slices/product';
+import {
+     setTypeProductActive,
+     setSizeProductActive,
+     addProductInCart,
+     setCartNotifOpen
+} from '../../../redux/slices/product';
 
 function Product({itemProduct}) {
     const cart = useSelector(state => state.product.cart)
@@ -41,13 +46,8 @@ function Product({itemProduct}) {
 
     const addNewProductInCart = (id,type,size)=>{
         let productInCart = {id,typeProduct:activeTypeValue,sizeProduct:activeSizeValue,price}
-
-
-
         dispatch(addProductInCart(productInCart))
-
-       
-
+        dispatch(setCartNotifOpen(true))
     }
 
     const getPerTotalProduct = (cart,id)=>{

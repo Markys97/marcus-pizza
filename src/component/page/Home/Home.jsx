@@ -3,6 +3,7 @@ import Trie from '../../layout/Trie/Trie';
 import Filter from '../../layout/Filter/Filter';
 import ListProduct from '../../layout/ListProduct/ListProduct';
 
+
 function Home() {
 
   return (
@@ -22,6 +23,7 @@ function Home() {
                 </section>
             </div>
         </div>
+       
     </main>
   )
 }

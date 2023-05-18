@@ -7,3 +7,13 @@
         gap:55px 35px;
     }
  }
+
+ @media screen and (max-width:1300px){
+    .list-product{
+        &__row{
+            grid-template-columns: repeat(3,1fr);
+            gap:45px 30px;
+        }
+     }
+    
+ }

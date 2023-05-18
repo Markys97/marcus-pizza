@@ -29,7 +29,8 @@
   animation: loading 3s ease-in-out infinite;
 }
 .product__img {
-  width: 259.12px;
+  max-width: 259.12px;
+  width: 100%;
   height: 260px;
   display: flex;
   justify-content: center;

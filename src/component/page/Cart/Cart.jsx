@@ -2,16 +2,27 @@ import { useEffect } from 'react'
 import './style/cart.css'
 import ListProductInCart from '../../layout/ListProductInCart/ListProductInCart';
 import Button from '../../ui/Button/Button';
+import { useSelector,useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { cleanCart } from '../../../redux/slices/product';
 
 function Cart() {
-    let test = false
+    const dispatch = useDispatch()
+    const cart = useSelector(state => state.product.cart)
+     const numberProductInCart = cart.length;
+
+     const getCartTotalPrice = cart.reduce((acc,currentItem)=>{
+        return acc += currentItem.qt * currentItem.price
+     },0)
+
+     const removeAllProductInCart = () => dispatch(cleanCart([]))
 
 
   return (
     <main className='cart'>
         <div className="cart__container wrapper">
             <div className="cart__content">
-                { test ?
+                { numberProductInCart ===0 ?
                  (<div className="cart-empty">
                     <div className="cart-empty__content">
                         <h2 className="cart-empty__title">Корзина пустая 😕</h2>
@@ -26,7 +37,10 @@ function Cart() {
                         </div>
 
                         <div className="cart-empty__wrapper-button">
-                            <Button textButton="Вернуться назад" type="sombre"/>
+                            <Link to="..">
+                                <Button textButton="Вернуться назад" type="sombre"/>
+                            </Link>
+                            
                         </div>
                     </div>
                 </div>):
@@ -44,7 +58,7 @@ function Cart() {
                                     </div>
                                     <div className="cart-with__title-text">Корзина</div>
                                 </h2>
-                                <button className="cart-with__clean">
+                                <button onClick={()=> removeAllProductInCart()} className="cart-with__clean">
                                     <div className="cart-with__clean-row">
                                         <div className="cart-with__clean-icon">
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -62,24 +76,27 @@ function Cart() {
                             </div>
 
                             <div className="cart-with__body">
-                                <ListProductInCart/>
+                                <ListProductInCart listProduct={cart}/>
                             </div>
 
                             <div className="cart-with__footer">
                                 <div className="cart-with__footer-top">
                                     <div className="cart-with__total-product">
-                                        <span>Всего пицц:</span> <span>3 шт.</span>
+                                        <span>Всего пицц:</span> <span>{numberProductInCart} шт.</span>
                                     </div>
                                     <div className="cart-with__total-price">
-                                        Сумма заказа: <span>900 ₽</span>
+                                        Сумма заказа: <span>{getCartTotalPrice} ₽</span>
                                     </div>
                                 </div>
                                 <div className="cart-with__footer-bottom">
-                                    <Button textButton="Вернуться назад" type="light">
-                                        <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M7 13L1 6.93015L6.86175 1" stroke="#D3D3D3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </Button>
+                                    <Link to="..">
+                                        <Button textButton="Вернуться назад" type="light">
+                                            <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7 13L1 6.93015L6.86175 1" stroke="#D3D3D3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </Button>
+                                    </Link>
+                                    
                                     <Button textButton="Оплатить сейчас"/>
                                 </div>
                             </div>

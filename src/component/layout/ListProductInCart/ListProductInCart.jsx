@@ -1,10 +1,13 @@
 import './style/listProductInCart.css'
 import ProductInCart from '../ProductInCart/ProductInCart'
 
-function ListProductInCart() {
+function ListProductInCart({listProduct}) {
   return (
     <div className=" list-product-in-cart">
-        <ProductInCart/>
+       
+        {
+          listProduct.map((productItem, index) =>  <ProductInCart key={index} productData ={productItem}/>)
+        }
     </div>
   )
 }

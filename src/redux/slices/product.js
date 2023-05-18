@@ -135,7 +135,8 @@ const initialState = {
             ],
             price:750
         }
-    ]
+    ],
+    isCartNotifOpen:false
 }
 
  export const productSlice = createSlice({
@@ -208,9 +209,46 @@ const initialState = {
             return state
 
 
-        }
+        },
+        cleanCart : (state,action)=> state = {...state,cart:action.payload},
+        incrementQt:(state,action) => {
+            let cart = state.cart;
+            let idProduct = action.payload
+            let indexCurrentProduct = cart.findIndex(item=> item.id === idProduct)
+            cart[indexCurrentProduct].qt +=1
+            state.cart =cart
+
+            return state
+        },
+        decrementQt:(state,action) => {
+            let cart = state.cart;
+            let idProduct = action.payload
+            let indexCurrentProduct = cart.findIndex(item=> item.id === idProduct)
+            cart[indexCurrentProduct].qt -=1
+            state.cart =cart
+
+            return state
+        },
+        removeProductInCart:(state,action)=>{
+            let idProduct = action.payload;
+            let cart =state.cart;
+            cart = cart.filter(item=> item.id !==idProduct)
+            state.cart = cart
+
+            return state
+        },
+        setCartNotifOpen:(state,action)=> state = {...state,isCartNotifOpen:action.payload}
+        
     }
 })
 
-export const {setTypeProductActive,setSizeProductActive,addProductInCart} = productSlice.actions
+export const {setTypeProductActive,
+    setSizeProductActive,
+    addProductInCart,
+    cleanCart,
+    decrementQt,
+    incrementQt,
+    removeProductInCart,
+    setCartNotifOpen
+} = productSlice.actions
 

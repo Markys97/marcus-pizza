@@ -16,4 +16,10 @@
 .filter__row {
   display: flex;
   gap: 9px;
+}
+
+@media screen and (max-width: 1300px) {
+  .filter__scroll {
+    width: 700px;
+  }
 }/*# sourceMappingURL=filter.css.map */
