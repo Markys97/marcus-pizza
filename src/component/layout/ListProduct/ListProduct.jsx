@@ -58,12 +58,20 @@ function ListProduct() {
 
   return (
     <div className="list-product">
-        <div className="list-product__row">
-         
+      {
+        finalListProduct.length!==0? (
+          <div className="list-product__row">
             {
               finalListProduct.map((product,index)=>  <Product key={index}  itemProduct={product}/>)
             }
         </div>
+        ):(
+          <div className="list-product__empty">
+             пока нет пиццы
+          </div>
+        )
+      }
+
         <div className= {`notification ${isCartNotifOpen?'active':''}`}>пицца успешно добавлена</div>
     </div>
   )

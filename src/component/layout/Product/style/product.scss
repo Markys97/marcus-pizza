@@ -135,6 +135,13 @@
  // component button product
  
  .button-product{
+ 
+    &.blocked{
+        pointer-events: none;
+        cursor: none!important;
+        opacity: .5!important;
+        
+    }
     cursor: pointer;
     padding: 14px 18px;
     background: #FE5F1E;

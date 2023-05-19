@@ -6,11 +6,13 @@ import {
      addProductInCart,
      setCartNotifOpen
 } from '../../../redux/slices/product';
+import { useEffect, useRef, useState } from 'react';
 
 function Product({itemProduct}) {
     const cart = useSelector(state => state.product.cart)
     const dispatch = useDispatch()
     const {id,img,name,type,size,price} = itemProduct
+
 
     const setActiveType = (e,id) => {
       let textClickedItem = e.target.textContent.toLowerCase();
@@ -45,9 +47,13 @@ function Product({itemProduct}) {
     }
 
     const addNewProductInCart = (id,type,size)=>{
+
         let productInCart = {id,typeProduct:activeTypeValue,sizeProduct:activeSizeValue,price}
+        
         dispatch(addProductInCart(productInCart))
-        dispatch(setCartNotifOpen(true))
+        if(cart.findIndex(item=> item.id ===id) ===-1){
+            dispatch(setCartNotifOpen(true))
+        }
     }
 
     const getPerTotalProduct = (cart,id)=>{
@@ -57,7 +63,6 @@ function Product({itemProduct}) {
     }
 
    const perTotalProduct= getPerTotalProduct(cart,id)
-
 
 
 
@@ -104,7 +109,7 @@ function Product({itemProduct}) {
                     от {price} &#x20BD;
                 </div>
                 <div className="product__buttons ">
-                    <button onClick={()=> addNewProductInCart(id,type,size)} className={`button-product ${perTotalProduct!==0? ' active':''}`}>
+                    <button onClick={()=> addNewProductInCart(id,type,size)} className={`button-product ${perTotalProduct!==0? ' active':''} `} >
                         <div className="button-product__content">
                             <div className="button-product__row">
                                 <div className="button-product__icon">
